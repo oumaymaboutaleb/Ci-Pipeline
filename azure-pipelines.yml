@@ -1,4 +1,7 @@
+
+
 trigger:
+
 - master
 
 pool:
@@ -9,6 +12,9 @@ variables:
   IMAGE_TAG: latest
 
 steps:
-- script: |
+
+- script:
+  
     docker compose build ordering.api
-  displayName: 'Build and push Docker image'
+
+
