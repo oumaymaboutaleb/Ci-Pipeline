@@ -13,8 +13,11 @@ variables:
 
 steps:
 
-- script:
-  
-    docker compose build ordering.api
+- task: Docker@2
+  displayName: Build an image
+  inputs:
+    repository: $(imageName)
+    command: docker compose build ordering.api 
+    
 
 
