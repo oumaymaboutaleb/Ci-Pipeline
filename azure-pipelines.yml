@@ -14,11 +14,14 @@ variables:
 
 steps:
 - task: DockerCompose@0
+  displayName: 'Build Ordering API image'
   inputs:
-    containerregistrytype: 'Azure Container Registry'
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'myRegistryEndpoint'
+    command: 'build'
     dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
-
+    projectName: 'myProjectName'
+    arguments: 'ordering.api'
     
 
 
