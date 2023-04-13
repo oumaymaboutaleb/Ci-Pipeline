@@ -17,7 +17,6 @@ steps:
   displayName: 'Build Ordering API image'
   inputs:
     containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'myRegistryEndpoint'
     command: 'build'
     dockerComposeFile: '**/docker-compose.yml'
     projectName: 'myProjectName'
