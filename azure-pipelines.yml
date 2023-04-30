@@ -1,5 +1,4 @@
 
-
 trigger:
 
 - master
@@ -13,11 +12,20 @@ variables:
   IMAGE_TAG: latest
 
 steps:
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarqube'
+    scannerMode: 'MSBuild'
+    projectKey: 'pfa_pfa_AYfUT5QWOhP1ceL-J0yo'
+    projectName: 'SonarQube'
+
+
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
+- task: SonarQubeAnalyze@5
    
     
 
