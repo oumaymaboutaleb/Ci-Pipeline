@@ -18,12 +18,11 @@ steps:
     SonarQube: 'sonarqubeServer'
     scannerMode: 'MSBuild'
     projectKey: 'pfa_pfa_AYfYhOmun44-h-8FJYUe'
-- task: Docker@2
+- task: DockerCompose@0
   inputs:
-    command: 'build'
-    Dockerfile: 'src/ApiGateways/OcelotApiGw/Dockerfile'
-
-    
+    containerregistrytype: 'Azure Container Registry'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Build services'
 - task: SonarQubeAnalyze@5
 - task: SonarQubePublish@5
   inputs:
