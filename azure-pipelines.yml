@@ -23,6 +23,10 @@ steps:
     containerregistrytype: 'Azure Container Registry'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build src/aspnetrun-microservices.sln'
+  continueOnError: true
+
 - task: SonarQubeAnalyze@5
 - task: SonarQubePublish@5
   inputs:
