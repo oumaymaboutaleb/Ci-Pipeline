@@ -13,20 +13,13 @@ variables:
 
 steps:
 
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'sonarqubeServer'
-    scannerMode: 'MSBuild'
-    projectKey: 'pfa_pfa_AYfYhOmun44-h-8FJYUe'
+-
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
-- task: SonarQubeAnalyze@5
-- task: SonarQubePublish@5
-  inputs:
-    pollingTimeoutSec: '300'
+
 
    
     
