@@ -12,6 +12,17 @@ variables:
   IMAGE_TAG: latest
 
 steps:
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'devops'
+    scannerMode: 'MSBuild'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '/run-aspnetcore-microservices/src/Services/Ordering/Ordering.Application'  
+
+- task: SonarQubeAnalyze@5   
 
 
 - task: DockerCompose@0
