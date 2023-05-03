@@ -16,6 +16,7 @@ steps:
   inputs:
     SonarQube: 'devops'
     scannerMode: 'MSBuild'
+    projectKey: 'sonar.cpd.cross_project'
 
 - task: DotNetCoreCLI@2
   inputs:
