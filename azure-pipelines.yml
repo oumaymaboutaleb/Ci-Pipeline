@@ -17,12 +17,9 @@ steps:
     SonarQube: 'devops'
     scannerMode: 'MSBuild'
     projectKey: 'sonar.cpd.cross_project'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '/run-aspnetcore-microservices/src/Services/Ordering/Ordering.Application'  
-
 - task: SonarQubeAnalyze@5   
 
 
